@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>godisgood20 | Roblox Portfolio</title>
+    <title>m1nadev | Roblox Scripter</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -24,7 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* Subtle background grain */
         body::before {
             content: '';
             position: fixed;
@@ -79,20 +78,38 @@
             color: #fff;
         }
 
+        /* Status badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(0, 200, 83, 0.08);
+            border: 1px solid rgba(0, 200, 83, 0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #00c853;
+            margin-bottom: 24px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #00c853;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
         /* Hero */
         .hero {
             padding: 180px 40px 120px;
             max-width: 1000px;
             margin: 0 auto;
-        }
-
-        .hero-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #00c853;
-            font-weight: 500;
-            margin-bottom: 20px;
         }
 
         .hero h1 {
@@ -191,147 +208,136 @@
             background: rgba(255, 255, 255, 0.06);
         }
 
-        /* Project Cards */
-        .project-grid {
+        /* About */
+        .about-text {
+            color: #888;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            max-width: 600px;
+        }
+
+        /* Services */
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 16px;
         }
 
-        .project-card {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            gap: 24px;
-            padding: 28px 32px;
+        .service-card {
+            padding: 28px 24px;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 12px;
             transition: all 0.25s ease;
-            text-decoration: none;
-            color: inherit;
         }
 
-        .project-card:hover {
+        .service-card:hover {
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(255, 255, 255, 0.12);
-            transform: translateX(4px);
         }
 
-        .project-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
+        .service-icon {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Showcase */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .showcase-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .showcase-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .showcase-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: rgba(255, 255, 255, 0.03);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
+            color: #333;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .project-icon.green { background: rgba(0, 200, 83, 0.1); }
-        .project-icon.blue { background: rgba(0, 150, 255, 0.1); }
-        .project-icon.purple { background: rgba(150, 100, 255, 0.1); }
+        .showcase-info {
+            padding: 20px 24px;
+        }
 
-        .project-info h3 {
+        .showcase-info h3 {
             font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 4px;
             color: #fff;
+            margin-bottom: 6px;
         }
 
-        .project-info p {
+        .showcase-info p {
             font-size: 0.85rem;
             color: #666;
             line-height: 1.5;
         }
 
-        .project-tag {
-            padding: 5px 14px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: #888;
-            white-space: nowrap;
+        /* Pricing */
+        .pricing-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
         }
 
-        /* Skills */
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 12px;
+        .pricing-box h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 20px;
         }
 
-        .skill-item {
+        .pricing-details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .pricing-details li {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-            transition: all 0.2s;
-        }
-
-        .skill-item:hover {
-            border-color: rgba(0, 200, 83, 0.2);
-            background: rgba(0, 200, 83, 0.03);
-        }
-
-        .skill-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #00c853;
-            flex-shrink: 0;
-        }
-
-        .skill-item span {
-            font-size: 0.9rem;
-            color: #ccc;
-        }
-
-        /* About */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: start;
-        }
-
-        .about-text {
-            color: #888;
-            line-height: 1.8;
             font-size: 0.95rem;
+            color: #999;
         }
 
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .stat-card {
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-        }
-
-        .stat-card .number {
-            font-size: 1.6rem;
+        .pricing-details li .check {
+            color: #00c853;
             font-weight: 700;
-            color: #fff;
-            letter-spacing: -1px;
-        }
-
-        .stat-card .label {
-            font-size: 0.75rem;
-            color: #555;
-            margin-top: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1rem;
         }
 
         /* Contact */
@@ -341,7 +347,7 @@
             flex-wrap: wrap;
         }
 
-        .contact-grid a {
+        .contact-card {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -355,10 +361,23 @@
             transition: all 0.2s;
         }
 
-        .contact-grid a:hover {
+        .contact-card:hover {
             border-color: rgba(255, 255, 255, 0.2);
             color: #fff;
             background: rgba(255, 255, 255, 0.06);
+        }
+
+        .discord-tag {
+            padding: 14px 24px;
+            background: rgba(88, 101, 242, 0.08);
+            border: 1px solid rgba(88, 101, 242, 0.2);
+            border-radius: 10px;
+            color: #7289da;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         /* Footer */
@@ -417,22 +436,16 @@
                 padding: 0 20px;
             }
 
-            .about-content {
+            .services-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
             }
 
-            .project-card {
-                grid-template-columns: auto 1fr;
-                padding: 20px;
+            .showcase-grid {
+                grid-template-columns: 1fr;
             }
 
-            .project-tag {
-                display: none;
-            }
-
-            .skill-grid {
-                grid-template-columns: 1fr 1fr;
+            .pricing-box {
+                padding: 28px 24px;
             }
 
             footer {
@@ -446,102 +459,90 @@
 </head>
 <body>
     <nav>
-        <div class="logo">godisgood20</div>
+        <div class="logo">m1nadev</div>
         <div class="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
             <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#showcase">Showcase</a>
+            <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <div class="hero">
-        <div class="hero-label fade-in">Roblox Developer</div>
-        <h1 class="fade-in">Building <span>games</span><br>& experiences.</h1>
-        <p class="fade-in">I create immersive Roblox experiences from the ground up — scripting, building, UI, and everything in between.</p>
+        <div class="status-badge fade-in"><div class="status-dot"></div> Open for Commissions</div>
+        <h1 class="fade-in">Roblox <span>Scripter</span><br>for hire.</h1>
+        <p class="fade-in">I'm a Roblox scripter focused on building individual game systems — shops, NPCs, data saving, custom UIs, and more. If your game needs a specific system built, I've got you.</p>
         <div class="hero-links fade-in">
-            <a href="#projects" class="primary">View Projects</a>
-            <a href="#contact" class="secondary">Get In Touch</a>
+            <a href="#showcase" class="primary">See My Work</a>
+            <a href="#contact" class="secondary">Commission Me</a>
         </div>
     </div>
-
-    <div class="section-divider"><hr></div>
-
-    <section id="projects">
-        <p class="section-label fade-in">Work</p>
-        <h2 class="fade-in">Projects</h2>
-        <div class="project-grid">
-            <div class="project-card fade-in">
-                <div class="project-icon green">&#9889;</div>
-                <div class="project-info">
-                    <h3>Project Name</h3>
-                    <p>Description of your Roblox game or experience. What you built, what makes it special.</p>
-                </div>
-                <span class="project-tag">Game</span>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-icon blue">&#127912;</div>
-                <div class="project-info">
-                    <h3>Another Project</h3>
-                    <p>Another game or system you've created. Showcase your best work here.</p>
-                </div>
-                <span class="project-tag">Experience</span>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-icon purple">&#10024;</div>
-                <div class="project-info">
-                    <h3>More Work</h3>
-                    <p>Add as many project cards as you'd like. Replace these with your real projects.</p>
-                </div>
-                <span class="project-tag">Commission</span>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"><hr></div>
-
-    <section id="skills">
-        <p class="section-label fade-in">Toolkit</p>
-        <h2 class="fade-in">Skills</h2>
-        <div class="skill-grid">
-            <div class="skill-item fade-in"><div class="skill-dot"></div><span>Lua / Luau</span></div>
-            <div class="skill-item fade-in"><div class="skill-dot"></div><span>Roblox Studio</span></div>
-            <div class="skill-item fade-in"><div class="skill-dot"></div><span>Game Design</span></div>
-            <div class="skill-item fade-in"><div class="skill-dot"></div><span>UI/UX Design</span></div>
-            <div class="skill-item fade-in"><div class="skill-dot"></div><span>3D Building</span></div>
-            <div class="skill-item fade-in"><div class="skill-dot"></div><span>Scripting Systems</span></div>
-            <div class="skill-item fade-in"><div class="skill-dot"></div><span>Animation</span></div>
-            <div class="skill-item fade-in"><div class="skill-dot"></div><span>Level Design</span></div>
-        </div>
-    </section>
 
     <div class="section-divider"><hr></div>
 
     <section id="about">
         <p class="section-label fade-in">Background</p>
         <h2 class="fade-in">About Me</h2>
-        <div class="about-content">
-            <p class="about-text fade-in">
-                I'm a passionate Roblox developer who loves building immersive games and experiences. From scripting game mechanics to designing detailed worlds, I bring ideas to life in Roblox Studio.
-            </p>
-            <div class="about-stats">
-                <div class="stat-card fade-in">
-                    <div class="number">3+</div>
-                    <div class="label">Projects</div>
+        <p class="about-text fade-in">
+            I'm a Roblox scripter focused on building individual game systems — shops, NPCs, data saving, custom UIs, and more. If your game needs a specific system built, I've got you.
+        </p>
+    </section>
+
+    <div class="section-divider"><hr></div>
+
+    <section id="services">
+        <p class="section-label fade-in">What I Do</p>
+        <h2 class="fade-in">Services</h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128722;</div>
+                <h3>Shop Systems</h3>
+                <p>In-game stores, currency systems, gamepass integration, and item purchasing.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128190;</div>
+                <h3>Data Saving</h3>
+                <p>Player data, inventory saving, stats, and progress that persists between sessions.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#127912;</div>
+                <h3>Custom UIs</h3>
+                <p>Menus, HUDs, inventories, scoreboards, and any on-screen interface your game needs.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128483;</div>
+                <h3>NPC Systems</h3>
+                <p>Dialogue, quest givers, shop NPCs, and interactive characters for your game.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"><hr></div>
+
+    <section id="showcase">
+        <p class="section-label fade-in">My Work</p>
+        <h2 class="fade-in">Showcase</h2>
+        <div class="showcase-grid">
+            <div class="showcase-card fade-in">
+                <div class="showcase-video">Video coming soon</div>
+                <div class="showcase-info">
+                    <h3>Demo 1</h3>
+                    <p>Video showcase coming soon.</p>
                 </div>
-                <div class="stat-card fade-in">
-                    <div class="number">Luau</div>
-                    <div class="label">Primary Lang</div>
+            </div>
+            <div class="showcase-card fade-in">
+                <div class="showcase-video">Video coming soon</div>
+                <div class="showcase-info">
+                    <h3>Demo 2</h3>
+                    <p>Video showcase coming soon.</p>
                 </div>
-                <div class="stat-card fade-in">
-                    <div class="number">2026</div>
-                    <div class="label">Active Since</div>
-                </div>
-                <div class="stat-card fade-in">
-                    <div class="number">Open</div>
-                    <div class="label">For Work</div>
+            </div>
+            <div class="showcase-card fade-in">
+                <div class="showcase-video">Video coming soon</div>
+                <div class="showcase-info">
+                    <h3>Demo 3</h3>
+                    <p>Video showcase coming soon.</p>
                 </div>
             </div>
         </div>
@@ -549,27 +550,42 @@
 
     <div class="section-divider"><hr></div>
 
+    <section id="pricing">
+        <p class="section-label fade-in">Rates</p>
+        <h2 class="fade-in">Pricing</h2>
+        <div class="pricing-box fade-in">
+            <h3>How it works</h3>
+            <ul class="pricing-details">
+                <li><span class="check">&#10003;</span> USD only — no Robux</li>
+                <li><span class="check">&#10003;</span> 50% upfront, 50% on delivery</li>
+                <li><span class="check">&#10003;</span> DM me on Discord for a quote</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="section-divider"><hr></div>
+
     <section id="contact">
-        <p class="section-label fade-in">Connect</p>
-        <h2 class="fade-in">Get In Touch</h2>
+        <p class="section-label fade-in">Reach Out</p>
+        <h2 class="fade-in">Contact</h2>
         <div class="contact-grid fade-in">
-            <a href="https://github.com/godisgood20" target="_blank">
+            <div class="discord-tag">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"/></svg>
+                m1nadev
+            </div>
+            <a href="https://github.com/godisgood20" target="_blank" class="contact-card">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 GitHub
-            </a>
-            <a href="https://www.roblox.com/" target="_blank">
-                Roblox Profile
             </a>
         </div>
     </section>
 
     <footer>
-        <span>godisgood20 &copy; 2026</span>
+        <span>m1nadev &copy; 2026</span>
         <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a>
     </footer>
 
     <script>
-        // Scroll fade-in animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
@@ -583,7 +599,6 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Initial hero animations
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.hero .fade-in').forEach((el, i) => {
                 setTimeout(() => el.classList.add('visible'), 200 + i * 120);
